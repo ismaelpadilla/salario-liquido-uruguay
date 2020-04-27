@@ -7,6 +7,7 @@ import {
   APORTE_FRL,
   IRPF_FRANJAS,
   INCREMENTO_INGRESOS_GRAVADOS,
+  ADICIONAL_FONDO_SOLIDARIDAD,
   TASA_DEDUCCIONES_DESDE15BPC,
   TASA_DEDUCCIONES_HASTA15BPC,
   DEDUCCION_HIJO_SIN_DISCAPACIDAD,
@@ -64,7 +65,10 @@ export const calcularAportesBPS = (salarioNominal, tieneHijos, tieneConyuge) => 
  * @param {number} aportesJubilatorios - Aportes jubilatorios.
  * @param {number} aportesFONASA - Aportes FONASA.
  * @param {number} aporteFRL - Aporte FRL.
+ * @param {number} aportesFondoSolidaridad - Cantidad de BPC que se aportan al Fondo de Solidaridad.
+ * @param {boolean} adicionalFondoSolidaridad - True si corresponde aportar adicional al Fondo de Solidaridad.
  * @param {number} aportesCJPPU - Aportes a la Caja de Profesionales Universitarios.
+ * @param {number} otrasDeducciones - Otras deducciones.
  *
  * @returns {ImpuestoIRPF} - El monto total de IRPF y los detalles de las distintas franjas y deducciones.
  */
@@ -75,7 +79,10 @@ export const calcularIPRF = (
   aportesJubilatorios,
   aportesFONASA,
   aporteFRL,
-  aportesCJPPU
+  aportesCJPPU,
+  aportesFondoSolidaridad,
+  adicionalFondoSolidaridad,
+  otrasDeducciones
 ) => {
   // info sobre deducciones
   // https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;
@@ -92,7 +99,16 @@ export const calcularIPRF = (
     cantHijosSinDiscapacidad * DEDUCCION_HIJO_SIN_DISCAPACIDAD +
     cantHijosConDiscapacidad * DEDUCCION_HIJO_CON_DISCAPACIDAD;
 
-  const deducciones = deduccionesHijos + aportesJubilatorios + aportesFONASA + aporteFRL + aportesCJPPU;
+  const aporteAdicionalFondoSolidaridad = adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0;
+  const deducciones =
+    deduccionesHijos +
+    aportesJubilatorios +
+    aportesFONASA +
+    aporteFRL +
+    aportesFondoSolidaridad * BPC +
+    aporteAdicionalFondoSolidaridad +
+    aportesCJPPU +
+    otrasDeducciones;
 
   // Cantidad de impuesto de IRPF de cada franja
   const detalleIRPF = { impuestoFranja: [], deducciones };

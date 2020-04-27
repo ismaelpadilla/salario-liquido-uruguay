@@ -72,6 +72,12 @@ const DEDUCCION_HIJO_SIN_DISCAPACIDAD = (13 * BPC) / 12;
  */
 const DEDUCCION_HIJO_CON_DISCAPACIDAD = (26 * BPC) / 12;
 
+/**
+ * Adicional al fondo de solidaridad que debe pagarse en carreras de duracion igual o mayor
+ * a cinco años.
+ */
+const ADICIONAL_FONDO_SOLIDARIDAD = ((5 / 3) * BPC) / 12;
+
 export {
   BPC,
   IRPF_FRANJAS,
@@ -82,6 +88,7 @@ export {
   APORTE_FRL,
   TOPE_AFAP,
   INCREMENTO_INGRESOS_GRAVADOS,
+  ADICIONAL_FONDO_SOLIDARIDAD,
   TASA_DEDUCCIONES_DESDE15BPC,
   TASA_DEDUCCIONES_HASTA15BPC,
   DEDUCCION_HIJO_SIN_DISCAPACIDAD,
