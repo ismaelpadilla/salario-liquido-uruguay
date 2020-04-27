@@ -79,9 +79,9 @@ export const calcularIPRF = (
   aportesJubilatorios,
   aportesFONASA,
   aporteFRL,
-  aportesCJPPU,
   aportesFondoSolidaridad,
   adicionalFondoSolidaridad,
+  aportesCJPPU,
   otrasDeducciones
 ) => {
   // info sobre deducciones

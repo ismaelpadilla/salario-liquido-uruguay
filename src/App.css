@@ -1,0 +1,19 @@
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.title{
+  text-align:center;
+}
+.content {
+  padding-bottom: 100px; /* Alto del footer */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
