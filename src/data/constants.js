@@ -9,7 +9,7 @@ const BPC = 4519;
  *    El valor de 'desde' está dentro de la franja, el de 'hasta' no.
  *  - 'tasa' es el porcentaje del impuesto.
  */
-const IPRF_FRANJAS = [
+const IRPF_FRANJAS = [
   { desde: 0, hasta: 7, tasa: 0 },
   { desde: 7, hasta: 10, tasa: 10 },
   { desde: 10, hasta: 15, tasa: 15 },
@@ -45,6 +45,11 @@ const APORTE_FRL = 0.1;
 const TOPE_AFAP = 188411;
 
 /**
+ * Porcentaje de incremento de ingresos gravados que aplica si la renta computable es mayor a 10 BPC.
+ */
+const INCREMENTO_INGRESOS_GRAVADOS = 6;
+
+/**
  * Porcentaje de deducciones de IRPF para personas con salario hasta 15 BPC.
  */
 const TASA_DEDUCCIONES_HASTA15BPC = 10;
@@ -53,14 +58,26 @@ const TASA_DEDUCCIONES_HASTA15BPC = 10;
  */
 const TASA_DEDUCCIONES_DESDE15BPC = 8;
 
+/**
+ * Cantidad deducida del IRPF por cada hijo sin discapacidad.
+ */
+const DEDUCCION_HIJO_SIN_DISCAPACIDAD = (13 * BPC) / 12;
+/**
+ * Cantidad deducida del IRPF por cada hijo con discapacidad.
+ */
+const DEDUCCION_HIJO_CON_DISCAPACIDAD = (26 * BPC) / 12;
+
 export {
   BPC,
-  IPRF_FRANJAS,
+  IRPF_FRANJAS,
   APORTES_JUBILATORIOS,
   APORTES_FONASA_HASTA25BPC,
   APORTES_FONASA_DESDE25BPC,
   APORTE_FRL,
   TOPE_AFAP,
+  INCREMENTO_INGRESOS_GRAVADOS,
   TASA_DEDUCCIONES_DESDE15BPC,
   TASA_DEDUCCIONES_HASTA15BPC,
+  DEDUCCION_HIJO_SIN_DISCAPACIDAD,
+  DEDUCCION_HIJO_CON_DISCAPACIDAD
 };

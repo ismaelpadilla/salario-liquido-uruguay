@@ -4,8 +4,38 @@ import {
   APORTES_FONASA_HASTA25BPC,
   APORTES_FONASA_DESDE25BPC,
   APORTE_FRL,
+  IRPF_FRANJAS,
+  INCREMENTO_INGRESOS_GRAVADOS,
+  TASA_DEDUCCIONES_DESDE15BPC,
+  TASA_DEDUCCIONES_HASTA15BPC,
+  DEDUCCION_HIJO_SIN_DISCAPACIDAD,
+  DEDUCCION_HIJO_CON_DISCAPACIDAD,
 } from "../data/constants";
 
+/**
+ * @typedef {Object} AportesBPS
+ * @property {number} aportesJubilatorios - Aportes jubilatorios.
+ * @property {number} aportesFONASA - Aportes FONASA.
+ * @property {number} aporteFRL - Aportes FRL.
+ *
+ * @typedef {Object} DetalleBPS
+ * @property {Array<number>} impuestoFranja - Arreglo que en la posición i tiene el impuesto a pagar correpondiente a
+ *  la i-ésima franja de IRPF.
+ * @property {number} deducciones - Cantidad de monto a deducir (antes de aplicar la tasa de 8 o 10%).
+ *
+ * @typedef {Object} ImpuestoIRPF
+ * @property {DetalleBPS} detalleIRPF - Detalle del IRPF a pagar.
+ * @property {number} totalIRPF - Total del IRPF a pagar.
+ */
+
+/**
+ * Funcion que calcula los aportes al BPS.
+ * @param {number} salarioNominal - Salario nominal en pesos.
+ * @param {boolean} tieneHijos - True si tiene hijos a cargo, false en caso contrario.
+ * @param {boolean} tieneConyuge - True si tiene conyuge a cargo, false en caso contrario.
+ *
+ * @returns {AportesBPS} - Un objeto que tiene los aportes jubilatorios, FONASA y FRL calculados.
+ */
 export const calcularAportesBPS = (salarioNominal, tieneHijos, tieneConyuge) => {
   // Calcular que valores usar en base al salario nominal en BPC
   const salarioEnBPC = salarioNominal / BPC;
@@ -23,4 +53,62 @@ export const calcularAportesBPS = (salarioNominal, tieneHijos, tieneConyuge) => 
   const aportesFONASA = salarioNominal * porcentajeFonasa * 0.01;
   const aporteFRL = salarioNominal * APORTE_FRL * 0.01;
   return { aportesJubilatorios, aportesFONASA, aporteFRL };
+};
+
+/**
+ *
+ * @param {number} salarioNominal - Salario nominal.
+ * @param {number} cantHijosSinDiscapacidad - Cantida de hijos sin discapacidad.
+ * @param {number} cantHijosConDiscapacidad - Cantida de hijos con discapacidad.
+ * @param {number} aportesJubilatorios - Aportes jubilatorios.
+ * @param {number} aportesFONASA - Aportes FONASA.
+ * @param {number} aporteFRL - Aporte FRL.
+ * @param {number} aportesCJPPU - Aportes a la Caja de Profesionales Universitarios.
+ *
+ * @returns {ImpuestoIRPF} - El monto total de IRPF y los detalles de las distintas franjas y deducciones.
+ */
+export const calcularIPRF = (
+  salarioNominal,
+  cantHijosSinDiscapacidad,
+  cantHijosConDiscapacidad,
+  aportesJubilatorios,
+  aportesFONASA,
+  aporteFRL,
+  aportesCJPPU
+) => {
+  // info sobre deducciones
+  // https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;
+  const salarioEnBPC = salarioNominal / BPC;
+  let tasaDeducciones = null;
+  if (salarioEnBPC > 15) tasaDeducciones = TASA_DEDUCCIONES_DESDE15BPC;
+  else tasaDeducciones = TASA_DEDUCCIONES_HASTA15BPC;
+
+  // Calcular si hay que aplicar el aumento a ingresos gravados Seguridad Social
+  if (salarioEnBPC > 10) salarioNominal *= 1 + INCREMENTO_INGRESOS_GRAVADOS * 0.01;
+
+  // Cantidad deducida del IRPF por los hijos
+  const deduccionesHijos =
+    cantHijosSinDiscapacidad * DEDUCCION_HIJO_SIN_DISCAPACIDAD +
+    cantHijosConDiscapacidad * DEDUCCION_HIJO_CON_DISCAPACIDAD;
+
+  const deducciones = deduccionesHijos + aportesJubilatorios + aportesFONASA + aporteFRL + aportesCJPPU;
+
+  // Cantidad de impuesto de IRPF de cada franja
+  const detalleIRPF = { impuestoFranja: [], deducciones };
+
+  IRPF_FRANJAS.forEach((franja) => {
+    if (salarioNominal > franja.desde * BPC) {
+      const impuesto = (Math.min(franja.hasta * BPC, salarioNominal) - franja.desde * BPC) * franja.tasa * 0.01;
+      detalleIRPF.impuestoFranja.push(impuesto);
+    } else {
+      detalleIRPF.impuestoFranja.push(0);
+    }
+  });
+
+  const totalIRPF = Math.max(
+    0,
+    detalleIRPF.impuestoFranja.reduce((a, b) => a + b, 0) - deducciones * tasaDeducciones * 0.01
+  );
+
+  return { detalleIRPF, totalIRPF };
 };
