@@ -26,6 +26,11 @@ const IRPF_FRANJAS = [
 const APORTES_JUBILATORIOS = 15;
 
 /**
+ * Maximo del salario nominal sobre el cual aplican los aportes jubilatorios.
+ */
+const TOPE_APORTES_JUBILATORIOS = 188411;
+
+/**
  * Porcentaje de aportes FONASA para personas con salario hasta a 2.5 BPC.
  */
 const APORTES_FONASA_HASTA25BPC = { base: 3, conyuge: 2, hijos: 0 };
@@ -71,6 +76,7 @@ export {
   BPC,
   IRPF_FRANJAS,
   APORTES_JUBILATORIOS,
+  TOPE_APORTES_JUBILATORIOS,
   APORTES_FONASA_HASTA25BPC,
   APORTES_FONASA_DESDE25BPC,
   APORTE_FRL,
@@ -79,5 +85,5 @@ export {
   TASA_DEDUCCIONES_DESDE15BPC,
   TASA_DEDUCCIONES_HASTA15BPC,
   DEDUCCION_HIJO_SIN_DISCAPACIDAD,
-  DEDUCCION_HIJO_CON_DISCAPACIDAD
+  DEDUCCION_HIJO_CON_DISCAPACIDAD,
 };

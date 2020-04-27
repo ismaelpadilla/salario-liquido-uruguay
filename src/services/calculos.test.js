@@ -22,6 +22,21 @@ describe("Probar cálculo de aportes BPS", () => {
     }
   );
 
+  describe("Aplican topes jubilatorios", () => {
+    test.each([
+      [188411, 28261.65],
+      [200000, 28261.65],
+    ])("Calcula aportes BPS correctamente", (salarioNominal, esperadoJubilatorio) => {
+      /**
+       * El aporte jubilatorio se aplica hasta el tope 188411 (valor 2020).
+       */
+      const resultado = calcularAportesBPS(salarioNominal, false, false);
+
+      // Lo esperado deberia estar a un valor razonable de lo obtenido, para evitar errores de redondeo
+      expect(resultado.aportesJubilatorios).toBeCloseTo(esperadoJubilatorio);
+    });
+  });
+
   test.each([
     [20000, 0, 0, 3000, 900, 20, 0, { impuestoFranja: [0, 0, 0, 0, 0, 0, 0, 0], deducciones: 3920 }, 0],
     [40000, 0, 0, 6000, 1800, 40, 0, { impuestoFranja: [0, 837, 0, 0, 0, 0, 0, 0], deducciones: 7840 }, 53],

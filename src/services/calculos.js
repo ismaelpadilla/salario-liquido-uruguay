@@ -1,6 +1,7 @@
 import {
   BPC,
   APORTES_JUBILATORIOS,
+  TOPE_APORTES_JUBILATORIOS,
   APORTES_FONASA_HASTA25BPC,
   APORTES_FONASA_DESDE25BPC,
   APORTE_FRL,
@@ -49,7 +50,7 @@ export const calcularAportesBPS = (salarioNominal, tieneHijos, tieneConyuge) => 
   if (tieneConyuge) porcentajeFonasa += valoresFonasa.conyuge;
 
   // Calcular valores de retorno
-  const aportesJubilatorios = salarioNominal * APORTES_JUBILATORIOS * 0.01;
+  const aportesJubilatorios = Math.min(TOPE_APORTES_JUBILATORIOS, salarioNominal) * APORTES_JUBILATORIOS * 0.01;
   const aportesFONASA = salarioNominal * porcentajeFonasa * 0.01;
   const aporteFRL = salarioNominal * APORTE_FRL * 0.01;
   return { aportesJubilatorios, aportesFONASA, aporteFRL };
