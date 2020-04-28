@@ -100,12 +100,13 @@ export const calcularIPRF = (
     cantHijosConDiscapacidad * DEDUCCION_HIJO_CON_DISCAPACIDAD;
 
   const aporteAdicionalFondoSolidaridad = adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0;
+
   const deducciones =
     deduccionesHijos +
     aportesJubilatorios +
     aportesFONASA +
     aporteFRL +
-    aportesFondoSolidaridad * BPC +
+    (aportesFondoSolidaridad * BPC) / 12 +
     aporteAdicionalFondoSolidaridad +
     aportesCJPPU +
     otrasDeducciones;
@@ -129,3 +130,52 @@ export const calcularIPRF = (
 
   return { detalleIRPF, totalIRPF };
 };
+
+/**
+ * Calcular los impuestos de BPS e IRPF.
+ *
+ * @param {number} salarioNominal - Salario nominal en pesos.
+ * @param {boolean} tieneHijos - True si tiene hijos a cargo, false en caso contrario.
+ * @param {boolean} tieneConyuge - True si tiene conyuge a cargo, false en caso contrario.
+ * @param {number} cantHijosSinDiscapacidad - Cantida de hijos sin discapacidad.
+ * @param {number} cantHijosConDiscapacidad - Cantida de hijos con discapacidad.
+ * @param {number} aportesFondoSolidaridad - Cantidad de BPC que se aportan al Fondo de Solidaridad.
+ * @param {boolean} adicionalFondoSolidaridad - True si corresponde aportar adicional al Fondo de Solidaridad.
+ * @param {number} aportesCJPPU - Aportes a la Caja de Profesionales Universitarios.
+ * @param {number} otrasDeducciones - Otras deducciones.
+ *
+ */
+const calcularImpuestos = (
+  salarioNominal,
+  tieneHijos,
+  tieneConyuge,
+  cantHijosSinDiscapacidad,
+  cantHijosConDiscapacidad,
+  aportesFondoSolidaridad,
+  adicionalFondoSolidaridad,
+  aportesCJPPU,
+  otrasDeducciones
+) => {
+  const { aportesJubilatorios, aportesFONASA, aporteFRL } = calcularAportesBPS(
+    salarioNominal,
+    tieneHijos,
+    tieneConyuge
+  );
+
+  const { detalleIRPF, totalIRPF } = calcularIPRF(
+    salarioNominal,
+    cantHijosSinDiscapacidad,
+    cantHijosConDiscapacidad,
+    aportesJubilatorios,
+    aportesFONASA,
+    aporteFRL,
+    aportesFondoSolidaridad,
+    adicionalFondoSolidaridad,
+    aportesCJPPU,
+    otrasDeducciones
+  );
+
+  return { aportesJubilatorios, aportesFONASA, aporteFRL, detalleIRPF, totalIRPF };
+};
+
+export default calcularImpuestos;

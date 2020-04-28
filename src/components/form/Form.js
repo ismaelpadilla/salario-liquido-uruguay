@@ -76,13 +76,13 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <label htmlFor="inputAdicionalFondoSolidaridad">¿Adicional Fondo de Solidaridad?</label>
         <select
           id="inputAdicionalFondoSolidaridad"
-          name="adicionalCJPPU"
+          name="adicionalFondoSolidaridad"
           className="form-input"
-          value={formState.adicionalCJPPU}
+          value={formState.adicionalFondoSolidaridad}
           onChange={onFormElementChanged}
         >
-          <option value={false}>No</option>
-          <option value={true}>Si</option>
+          <option value="">No</option>
+          <option value="true">Si</option>
         </select>
         <label htmlFor="inputAportesCajaProfesionales">Aporte mensual a CJPPU o Caja Notarial:</label>
         <input

@@ -1,6 +1,8 @@
 .form {
   width: 80%;
+  box-sizing: border-box;
   margin: auto;
+  padding: 20px;
 }
 
 .form-section {
@@ -19,7 +21,9 @@
 }
 
 .form-input {
+  box-sizing: border-box;
   width: 20%;
+  min-width: 120px;
   text-align: right;
   padding: 2px;
 }
@@ -33,4 +37,11 @@
   border: 0;
   padding: 5px;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 783px) {
+  .form {
+    width: 95%;
+    margin: auto;
+  }
 }
