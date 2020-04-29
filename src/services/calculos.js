@@ -183,6 +183,7 @@ const calcularImpuestos = (
     aporteFRL -
     aportesFondoSolidaridad * BPC -
     (adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0) -
+    totalIRPF -
     aportesCJPPU;
 
   // Redondear todos los valores a dos numeros decimales, dejandolos como numeros.
