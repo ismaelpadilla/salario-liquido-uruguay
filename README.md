@@ -1,4 +1,4 @@
-# Salario líquido uruguay
+# Salario líquido uruguay - test
 
 ![Build y test](https://github.com/ismaelpadilla/salario-liquido-uruguay/workflows/Build%20y%20test/badge.svg)
 
