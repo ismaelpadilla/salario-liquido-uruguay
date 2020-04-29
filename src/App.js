@@ -6,6 +6,7 @@ import Result from "./components/result/Result";
 import calcularImpuestos from "./services/calculos";
 import history from "./history";
 import "./App.css";
+import { ReactComponent as GithubLogo } from "./assets/githubLogo.svg";
 
 class App extends React.Component {
   state = {
@@ -111,7 +112,32 @@ class App extends React.Component {
               <Redirect to="/form" />
             </Switch>
           </div>
-          <footer className="footer">Creado por Ismael Padilla.</footer>
+          <footer className="footer">
+            <div className="footer-content">
+              <div className="footer-about">
+                <span className="footer-txt autor">
+                  Creado por{" "}
+                  <a
+                    className="autor-link"
+                    href="https://www.linkedin.com/in/ismaelpadilla/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ismael Padilla.
+                  </a>
+                </span>
+                <span className="footer-txt ultimaActualizacion">Última actualización: Abril 2019</span>
+              </div>
+            </div>
+            <a
+              href="https://github.com/ismaelpadilla/salario-liquido-uruguay"
+              aria-label="Source code"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubLogo className="githubLogo" />
+            </a>
+          </footer>
         </div>
       </Router>
     );
