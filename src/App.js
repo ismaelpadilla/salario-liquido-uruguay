@@ -14,6 +14,7 @@ class App extends React.Component {
       salarioNominal: 0,
       tieneHijos: false,
       tieneConyuge: false,
+      factorDeduccionPersonasACargo: 1,
       cantHijosSinDiscapacidad: 0,
       cantHijosConDiscapacidad: 0,
       aportesFondoSolidaridad: 0,
@@ -63,6 +64,7 @@ class App extends React.Component {
         this.state.formState.salarioNominal,
         this.state.formState.tieneHijos,
         this.state.formState.tieneConyuge,
+        this.state.formState.factorDeduccionPersonasACargo,
         this.state.formState.cantHijosSinDiscapacidad,
         this.state.formState.cantHijosConDiscapacidad,
         this.state.formState.aportesFondoSolidaridad,
@@ -94,7 +96,7 @@ class App extends React.Component {
         <div className="App">
           <div className="content">
             <header className="title">
-              <h1>Salario líquido Uruguay</h1>
+              <h1 className="title-text">Salario líquido Uruguay</h1>
             </header>
             <Switch>
               <Route path="/result">
@@ -113,21 +115,19 @@ class App extends React.Component {
             </Switch>
           </div>
           <footer className="footer">
-            <div className="footer-content">
-              <div className="footer-about">
-                <span className="footer-txt autor">
-                  Creado por{" "}
-                  <a
-                    className="autor-link"
-                    href="https://www.linkedin.com/in/ismaelpadilla/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ismael Padilla.
-                  </a>
-                </span>
-                <span className="footer-txt ultimaActualizacion">Última actualización: Abril 2019</span>
-              </div>
+            <div className="footer-about">
+              <span className="footer-txt autor">
+                Creado por{" "}
+                <a
+                  className="autor-link"
+                  href="https://www.linkedin.com/in/ismaelpadilla/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ismael Padilla.
+                </a>
+              </span>
+              <span className="footer-txt ultimaActualizacion">Última actualización: Abril 2020</span>
             </div>
             <a
               href="https://github.com/ismaelpadilla/salario-liquido-uruguay"

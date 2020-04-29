@@ -24,7 +24,7 @@ const Result = ({
   }
 
   const totalFondoSolidaridadRedondeado = Number(
-    (aportesFondoSolidaridad * BPC + (adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0)).toFixed(2)
+    ((aportesFondoSolidaridad * BPC) / 12 + (adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0)).toFixed(2)
   );
 
   const aportesCJPPURedondeado = Number(aportesCJPPU.toFixed(2));

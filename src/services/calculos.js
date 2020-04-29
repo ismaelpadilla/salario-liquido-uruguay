@@ -61,6 +61,8 @@ export const calcularAportesBPS = (salarioNominal, tieneHijos, tieneConyuge) => 
 /**
  *
  * @param {number} salarioNominal - Salario nominal.
+ * @param {number} factorDeduccionPersonasACargo - Factor por el que se multiplica la deduccion correspondiente a
+ *   las personas a cargo.
  * @param {number} cantHijosSinDiscapacidad - Cantida de hijos sin discapacidad.
  * @param {number} cantHijosConDiscapacidad - Cantida de hijos con discapacidad.
  * @param {number} aportesJubilatorios - Aportes jubilatorios.
@@ -75,6 +77,7 @@ export const calcularAportesBPS = (salarioNominal, tieneHijos, tieneConyuge) => 
  */
 export const calcularIPRF = (
   salarioNominal,
+  factorDeduccionPersonasACargo,
   cantHijosSinDiscapacidad,
   cantHijosConDiscapacidad,
   aportesJubilatorios,
@@ -97,8 +100,9 @@ export const calcularIPRF = (
 
   // Cantidad deducida del IRPF por los hijos
   const deduccionesHijos =
-    cantHijosSinDiscapacidad * DEDUCCION_HIJO_SIN_DISCAPACIDAD +
-    cantHijosConDiscapacidad * DEDUCCION_HIJO_CON_DISCAPACIDAD;
+    factorDeduccionPersonasACargo *
+    (cantHijosSinDiscapacidad * DEDUCCION_HIJO_SIN_DISCAPACIDAD +
+      cantHijosConDiscapacidad * DEDUCCION_HIJO_CON_DISCAPACIDAD);
 
   const aporteAdicionalFondoSolidaridad = adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0;
 
@@ -139,6 +143,8 @@ export const calcularIPRF = (
  * @param {number} salarioNominal - Salario nominal en pesos.
  * @param {boolean} tieneHijos - True si tiene hijos a cargo, false en caso contrario.
  * @param {boolean} tieneConyuge - True si tiene conyuge a cargo, false en caso contrario.
+ * @param {number} factorDeduccionPersonasACargo - Factor por el que se multiplica la deduccion correspondiente a
+ *   las personas a cargo.
  * @param {number} cantHijosSinDiscapacidad - Cantida de hijos sin discapacidad.
  * @param {number} cantHijosConDiscapacidad - Cantida de hijos con discapacidad.
  * @param {number} aportesFondoSolidaridad - Cantidad de BPC que se aportan al Fondo de Solidaridad.
@@ -151,6 +157,7 @@ const calcularImpuestos = (
   salarioNominal,
   tieneHijos,
   tieneConyuge,
+  factorDeduccionPersonasACargo,
   cantHijosSinDiscapacidad,
   cantHijosConDiscapacidad,
   aportesFondoSolidaridad,
@@ -166,6 +173,7 @@ const calcularImpuestos = (
 
   const { detalleIRPF, totalIRPF } = calcularIPRF(
     salarioNominal,
+    factorDeduccionPersonasACargo,
     cantHijosSinDiscapacidad,
     cantHijosConDiscapacidad,
     aportesJubilatorios,
@@ -181,7 +189,7 @@ const calcularImpuestos = (
     aportesJubilatorios -
     aportesFONASA -
     aporteFRL -
-    aportesFondoSolidaridad * BPC -
+    (aportesFondoSolidaridad * BPC) / 12 -
     (adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0) -
     totalIRPF -
     aportesCJPPU;

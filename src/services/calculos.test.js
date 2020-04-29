@@ -38,10 +38,11 @@ describe("Probar cálculo de aportes BPS", () => {
 
 describe("Probar cálculo de IRPF", () => {
   test.each([
-    [20000, 0, 0, 3000, 900, 20, 0, 0, 0, 0, { impuestoFranja: [0, 0, 0, 0, 0, 0, 0, 0], deducciones: 3920 }, 0],
-    [40000, 0, 0, 6000, 1800, 40, 0, 0, 0, 0, { impuestoFranja: [0, 837, 0, 0, 0, 0, 0, 0], deducciones: 7840 }, 53],
+    [20000, 1, 0, 0, 3000, 900, 20, 0, 0, 0, 0, { impuestoFranja: [0, 0, 0, 0, 0, 0, 0, 0], deducciones: 3920 }, 0],
+    [40000, 1, 0, 0, 6000, 1800, 40, 0, 0, 0, 0, { impuestoFranja: [0, 837, 0, 0, 0, 0, 0, 0], deducciones: 7840 }, 53],
     [
       80000,
+      1,
       0,
       0,
       12000,
@@ -57,6 +58,7 @@ describe("Probar cálculo de IRPF", () => {
     [
       80000,
       1,
+      1,
       0,
       12000,
       3600,
@@ -70,6 +72,7 @@ describe("Probar cálculo de IRPF", () => {
     ],
     [
       80000,
+      1,
       0,
       1,
       12000,
@@ -86,6 +89,7 @@ describe("Probar cálculo de IRPF", () => {
       80000,
       1,
       1,
+      1,
       12000,
       3600,
       80,
@@ -100,6 +104,7 @@ describe("Probar cálculo de IRPF", () => {
     "Calcula IRPF correctamente",
     (
       salarioNominal,
+      factorDeduccionPersonasACargo,
       cantHijosSinDiscapacidad,
       cantHijosConDiscapacidad,
       aportesJubilatorios,
@@ -114,6 +119,7 @@ describe("Probar cálculo de IRPF", () => {
     ) => {
       const resultado = calcularIPRF(
         salarioNominal,
+        factorDeduccionPersonasACargo,
         cantHijosSinDiscapacidad,
         cantHijosConDiscapacidad,
         aportesJubilatorios,
@@ -139,12 +145,13 @@ describe("Probar cálculo de IRPF", () => {
 });
 
 describe("Probar cálculo total", () => {
-  test.each([[100, false, false, 0, 0, 0, false, 0, 0, 82]])(
+  test.each([[100, false, false, 1, 0, 0, 0, false, 0, 0, 82]])(
     "Calcula impuestos correctamente",
     (
       salarioNominal,
       tieneHijos,
       tieneConyuge,
+      factorDeduccionPersonasACargo,
       cantHijosSinDiscapacidad,
       cantHijosConDiscapacidad,
       aportesFondoSolidaridad,
@@ -164,6 +171,7 @@ describe("Probar cálculo total", () => {
         salarioNominal,
         tieneHijos,
         tieneConyuge,
+        factorDeduccionPersonasACargo,
         cantHijosSinDiscapacidad,
         cantHijosConDiscapacidad,
         aportesFondoSolidaridad,
