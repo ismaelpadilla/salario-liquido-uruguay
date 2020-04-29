@@ -1,5 +1,9 @@
 # Salario líquido uruguay
 
+![Build y test](https://github.com/ismaelpadilla/salario-liquido-uruguay/workflows/Build%20y%20test/badge.svg)
+
+----
+
 Herramienta para calcular el salario líquido en Uruguay.
 
 Hay varios problemas con los simuladores actuales.
