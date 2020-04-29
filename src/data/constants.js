@@ -6,7 +6,10 @@ const BPC = 4519;
 /**
  * Franjas de IPRF.
  *  - 'desde' y 'hasta' son los valores en BPC en los que está comprendida la franja.
+ *
  *    El valor de 'desde' está dentro de la franja, el de 'hasta' no.
+ *
+ *    La última franja tiene valor 0 en "hasta".
  *  - 'tasa' es el porcentaje del impuesto.
  */
 const IRPF_FRANJAS = [
@@ -17,7 +20,7 @@ const IRPF_FRANJAS = [
   { desde: 30, hasta: 50, tasa: 25 },
   { desde: 50, hasta: 75, tasa: 27 },
   { desde: 75, hasta: 115, tasa: 31 },
-  { desde: 115, hasta: 999, tasa: 36 },
+  { desde: 115, hasta: 0, tasa: 36 },
 ];
 
 /**

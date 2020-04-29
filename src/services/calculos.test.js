@@ -1,4 +1,4 @@
-import { calcularAportesBPS, calcularIPRF } from "./calculos";
+import calcularImpuestos, { calcularAportesBPS, calcularIPRF } from "./calculos";
 
 describe("Probar cálculo de aportes BPS", () => {
   test.each([
@@ -134,6 +134,45 @@ describe("Probar cálculo de IRPF", () => {
       expect(resultado.detalleIRPF.impuestoFranja[4]).toBeCloseTo(esperadoDetalleIRPF.impuestoFranja[4], -0.5);
       expect(resultado.detalleIRPF.deducciones).toBeCloseTo(esperadoDetalleIRPF.deducciones, -0.5);
       expect(resultado.totalIRPF).toBeCloseTo(esperadoTotalIRPF, -0.5);
+    }
+  );
+});
+
+describe("Probar cálculo total", () => {
+  test.each([[100, false, false, 0, 0, 0, false, 0, 0, 82]])(
+    "Calcula impuestos correctamente",
+    (
+      salarioNominal,
+      tieneHijos,
+      tieneConyuge,
+      cantHijosSinDiscapacidad,
+      cantHijosConDiscapacidad,
+      aportesFondoSolidaridad,
+      adicionalFondoSolidaridad,
+      aportesCJPPU,
+      otrasDeducciones,
+      esperadoSalarioLiquido
+    ) => {
+      const {
+        salarioLiquido,
+        aportesJubilatorios,
+        aportesFONASA,
+        aporteFRL,
+        detalleIRPF,
+        totalIRPF,
+      } = calcularImpuestos(
+        salarioNominal,
+        tieneHijos,
+        tieneConyuge,
+        cantHijosSinDiscapacidad,
+        cantHijosConDiscapacidad,
+        aportesFondoSolidaridad,
+        adicionalFondoSolidaridad,
+        aportesCJPPU,
+        otrasDeducciones
+      );
+
+      expect(salarioLiquido).toBeCloseTo(esperadoSalarioLiquido, -0.5);
     }
   );
 });

@@ -20,13 +20,14 @@ import {
  * @property {number} aportesFONASA - Aportes FONASA.
  * @property {number} aporteFRL - Aportes FRL.
  *
- * @typedef {Object} DetalleBPS
+ * @typedef {Object} DetalleIRPF
  * @property {Array<number>} impuestoFranja - Arreglo que en la posición i tiene el impuesto a pagar correpondiente a
  *  la i-ésima franja de IRPF.
  * @property {number} deducciones - Cantidad de monto a deducir (antes de aplicar la tasa de 8 o 10%).
+ * @property {number} tasaDeducciones - Tasa de deducciones IRPF.
  *
  * @typedef {Object} ImpuestoIRPF
- * @property {DetalleBPS} detalleIRPF - Detalle del IRPF a pagar.
+ * @property {DetalleIRPF} detalleIRPF - Detalle del IRPF a pagar.
  * @property {number} totalIRPF - Total del IRPF a pagar.
  */
 
@@ -112,11 +113,12 @@ export const calcularIPRF = (
     otrasDeducciones;
 
   // Cantidad de impuesto de IRPF de cada franja
-  const detalleIRPF = { impuestoFranja: [], deducciones };
+  const detalleIRPF = { impuestoFranja: [], deducciones, tasaDeducciones };
 
   IRPF_FRANJAS.forEach((franja) => {
+    const hasta = franja.hasta !== 0 ? franja.hasta : 999;
     if (salarioNominal > franja.desde * BPC) {
-      const impuesto = (Math.min(franja.hasta * BPC, salarioNominal) - franja.desde * BPC) * franja.tasa * 0.01;
+      const impuesto = (Math.min(hasta * BPC, salarioNominal) - franja.desde * BPC) * franja.tasa * 0.01;
       detalleIRPF.impuestoFranja.push(impuesto);
     } else {
       detalleIRPF.impuestoFranja.push(0);
@@ -132,7 +134,7 @@ export const calcularIPRF = (
 };
 
 /**
- * Calcular los impuestos de BPS e IRPF.
+ * Calcular los impuestos de BPS e IRPF. Los resultados devueltos tienen a lo sumo 2 decimales.
  *
  * @param {number} salarioNominal - Salario nominal en pesos.
  * @param {boolean} tieneHijos - True si tiene hijos a cargo, false en caso contrario.
@@ -174,8 +176,36 @@ const calcularImpuestos = (
     aportesCJPPU,
     otrasDeducciones
   );
+  const salarioLiquido =
+    salarioNominal -
+    aportesJubilatorios -
+    aportesFONASA -
+    aporteFRL -
+    aportesFondoSolidaridad * BPC -
+    (adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0) -
+    aportesCJPPU;
 
-  return { aportesJubilatorios, aportesFONASA, aporteFRL, detalleIRPF, totalIRPF };
+  // Redondear todos los valores a dos numeros decimales, dejandolos como numeros.
+  const salarioLiquidoRedondeado = Number(salarioLiquido.toFixed(2));
+  const aportesJubilatoriosRedondeado = Number(aportesJubilatorios.toFixed(2));
+  const aportesFONASARedondeado = Number(aportesFONASA.toFixed(2));
+  const aporteFRLRedondeado = Number(aporteFRL.toFixed(2));
+
+  const detalleIRPFRedondeado = {
+    impuestoFranja: detalleIRPF.impuestoFranja.map((n) => Number(n.toFixed(2))),
+    deducciones: Number(detalleIRPF.deducciones.toFixed(2)),
+    tasaDeducciones: detalleIRPF.tasaDeducciones,
+  };
+  const totalIRPFRedondeado = Number(totalIRPF.toFixed(2));
+
+  return {
+    salarioLiquido: salarioLiquidoRedondeado,
+    aportesJubilatorios: aportesJubilatoriosRedondeado,
+    aportesFONASA: aportesFONASARedondeado,
+    aporteFRL: aporteFRLRedondeado,
+    detalleIRPF: detalleIRPFRedondeado,
+    totalIRPF: totalIRPFRedondeado,
+  };
 };
 
 export default calcularImpuestos;

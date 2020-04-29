@@ -1,0 +1,126 @@
+.result {
+  box-sizing: border-box;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 30px;
+  padding: 5px 20px;
+}
+
+.btnVolver {
+  display: block;
+  width: 50px;
+  margin-bottom: 10px;
+  background-color: #5476aa;
+  color: white;
+  font-size: 1em;
+  border: 0;
+  padding: 5px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.liquido {
+  font-size: larger;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.liquido-dato {
+  font-weight: bold;
+}
+
+.result-section {
+  text-align: center;
+}
+
+.detalleBPS {
+  margin: auto;
+  max-width: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+
+.tablaBPS-label {
+  text-align: right;
+}
+
+.tablaBPS-dato {
+  text-align: right;
+}
+
+.totalBPS {
+  font-weight: bold;
+}
+
+.detalleIRPF {
+  margin: auto;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+}
+
+.tablaIRPF-head {
+  text-align: right;
+  font-weight: bold;
+}
+
+.tablaIRPF-label {
+  text-align: right;
+}
+
+.tablaIRPF-dato {
+  text-align: right;
+}
+
+.resumenIRPF {
+  margin: auto;
+  max-width: 400px;
+  margin-top: 20px;
+  display: grid;
+  column-gap: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+}
+
+.resumenIRPF-label {
+  grid-column: 1 / span 2;
+}
+
+.resumenIRPF-labelTotal {
+  font-weight: bold;
+}
+
+.resumenIRPF-dato {
+  grid-column: 4;
+  text-align: right;
+}
+
+.resumenIRPF-total {
+  font-weight: bold;
+}
+
+.detalleProfesionales {
+  margin: auto;
+  max-width: 300px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px 10px;
+}
+
+.tablaProfesionales-label {
+  grid-column: 1;
+}
+
+.tablaProfesionales-dato {
+  text-align: right;
+}
+
+@media only screen and (max-width: 783px) {
+  .result {
+    width: 95%;
+    margin: auto;
+  }
+}
