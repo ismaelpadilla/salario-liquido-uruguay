@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./Form.css";
 
 const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const submitBtnClasses = ["btnSubmit"];
 
   if (!formState.formValido) submitBtnClasses.push("btnSubmit-invalido");

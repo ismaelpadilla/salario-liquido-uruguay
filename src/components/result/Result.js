@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { BPC, IRPF_FRANJAS, ADICIONAL_FONDO_SOLIDARIDAD } from "../../data/constants";
@@ -17,6 +17,10 @@ const Result = ({
   adicionalFondoSolidaridad,
   aportesCJPPU,
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Para evitar que el usuario navegue directamente a esta pagina sin pasar por el formulario
   if (!formSubmitted) {
     history.push("/");
