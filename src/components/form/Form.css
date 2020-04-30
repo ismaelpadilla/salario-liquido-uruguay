@@ -28,6 +28,15 @@
   padding: 2px;
 }
 
+@keyframes rojoAAzul {
+  from {
+    background-color: rgb(255, 83, 71);
+  }
+  to {
+    background-color: #5476aa;
+  }
+}
+
 .btnSubmit {
   margin: auto;
   display: block;
@@ -38,6 +47,11 @@
   padding: 5px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.btnSubmit-invalido {
+  animation-name: rojoAAzul;
+  animation-duration: 2s;
 }
 
 @media only screen and (max-width: 783px) {

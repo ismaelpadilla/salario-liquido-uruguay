@@ -21,6 +21,7 @@ class App extends React.Component {
       adicionalFondoSolidaridad: false,
       aportesCJPPU: 0,
       otrasDeducciones: 0,
+      formValido: true,
     },
     result: {
       formSubmitted: false,
@@ -43,7 +44,7 @@ class App extends React.Component {
     const name = e.target.name;
     const value = e.target.type === "checkbox" ? e.target.checked : Number(e.target.value);
 
-    this.setState({ formState: { ...this.state.formState, [name]: value } });
+    this.setState({ formState: { ...this.state.formState, [name]: value, formValido: true } });
   };
 
   /**
@@ -86,7 +87,14 @@ class App extends React.Component {
         aportesCJPPU: this.state.formState.aportesCJPPU,
       };
       this.setState({ result });
-      if (salarioLiquido >= 0) history.push("result");
+      if (salarioLiquido >= 0) {
+        this.setState({ formState: { ...this.state.formState, formValido: true } });
+        history.push("result");
+      } else {
+        this.setState({ formState: { ...this.state.formState, formValido: false } });
+      }
+    } else {
+      this.setState({ formState: { ...this.state.formState, formValido: false } });
     }
   };
 

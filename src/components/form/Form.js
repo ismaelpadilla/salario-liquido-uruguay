@@ -3,6 +3,10 @@ import React from "react";
 import "./Form.css";
 
 const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
+  const submitBtnClasses = ["btnSubmit"];
+
+  if (!formState.formValido) submitBtnClasses.push("btnSubmit-invalido");
+
   return (
     <form className="form" onSubmit={onFormSubmitted}>
       <div className="form-grid">
@@ -114,7 +118,9 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           onChange={onFormElementChanged}
         ></input>
       </div>
-      <button className="btnSubmit">Calcular</button>
+      <button key={+new Date()} className={submitBtnClasses.join(" ")}>
+        Calcular
+      </button>
     </form>
   );
 };
