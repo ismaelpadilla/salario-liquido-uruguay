@@ -16,6 +16,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="salarioNominal"
           className="form-input"
           type="number"
+          min="0"
           value={formState.salarioNominal}
           onChange={onFormElementChanged}
         ></input>
@@ -62,6 +63,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="cantHijosSinDiscapacidad"
           className="form-input"
           type="number"
+          min="0"
           value={formState.cantHijosSinDiscapacidad}
           onChange={onFormElementChanged}
         ></input>
@@ -71,6 +73,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="cantHijosConDiscapacidad"
           className="form-input"
           type="number"
+          min="0"
           value={formState.cantHijosConDiscapacidad}
           onChange={onFormElementChanged}
         ></input>
@@ -105,6 +108,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="aportesCJPPU"
           className="form-input"
           type="number"
+          min="0"
           value={formState.aportesCJPPU}
           onChange={onFormElementChanged}
         ></input>
@@ -114,6 +118,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="otrasDeducciones"
           className="form-input"
           type="number"
+          min="0"
           value={formState.otrasDeducciones}
           onChange={onFormElementChanged}
         ></input>
