@@ -27,7 +27,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <input
           id="inputHijosACargo"
           name="tieneHijos"
-          className="form-checkbox"
+          className="form-input"
           type="checkbox"
           checked={formState.tieneHijos}
           onChange={onFormElementChanged}
@@ -36,7 +36,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <input
           id="inputConyujeACargo"
           name="tieneConyuge"
-          className="form-checkbox"
+          className="form-input"
           type="checkbox"
           checked={formState.tieneConyuge}
           onChange={onFormElementChanged}
