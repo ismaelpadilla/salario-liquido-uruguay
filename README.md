@@ -42,7 +42,7 @@ Por ejemplo, si el salario nominal es de $50000, el impuesto que se cobra es:
 
 - 0% sobre la porción del salario que cae entre la franja 0 y 7 BPC (impuesto de 0% sobre $31.633 del salario -> $0).
 - 7% sobre la porción del salario que cae entre la franja 7 y 10 BPC (impuesto de 10% sobre $13.557 del salario -> $1355.7).
-- 15% sobre la porción del salario que cae entre la franja 7 y 10 BPC (impuesto de 15% sobre $4.810 del salario -> $721.7).
+- 15% sobre la porción del salario que cae entre la franja 10 y 15 BPC (impuesto de 15% sobre $4.810 del salario -> $721.7).
 
 El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;)), sería entonces $2.077,4‬.
 
