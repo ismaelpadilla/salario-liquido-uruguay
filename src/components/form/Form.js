@@ -7,6 +7,14 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
     window.scrollTo(0, 0);
   }, []);
 
+  /**
+   * Función que se invoca al seleccionar un input.
+   * Selecciona los contenidos del mismo.
+   */
+  const handleFocus = (e) => {
+    e.target.select();
+  };
+
   const submitBtnClasses = ["btnSubmit"];
 
   if (!formState.formValido) submitBtnClasses.push("btnSubmit-invalido");
@@ -21,6 +29,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           className="form-input"
           type="number"
           min="0"
+          onFocus={handleFocus}
           value={formState.salarioNominal}
           onChange={onFormElementChanged}
         ></input>
@@ -67,6 +76,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="cantHijosSinDiscapacidad"
           className="form-input"
           type="number"
+          onFocus={handleFocus}
           min="0"
           value={formState.cantHijosSinDiscapacidad}
           onChange={onFormElementChanged}
@@ -77,6 +87,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="cantHijosConDiscapacidad"
           className="form-input"
           type="number"
+          onFocus={handleFocus}
           min="0"
           value={formState.cantHijosConDiscapacidad}
           onChange={onFormElementChanged}
@@ -112,6 +123,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="aportesCJPPU"
           className="form-input"
           type="number"
+          onFocus={handleFocus}
           min="0"
           value={formState.aportesCJPPU}
           onChange={onFormElementChanged}
@@ -122,6 +134,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
           name="otrasDeducciones"
           className="form-input"
           type="number"
+          onFocus={handleFocus}
           min="0"
           value={formState.otrasDeducciones}
           onChange={onFormElementChanged}
