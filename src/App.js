@@ -135,7 +135,7 @@ class App extends React.Component {
                   Ismael Padilla.
                 </a>
               </span>
-              <span className="footer-txt ultimaActualizacion">Última actualización: Mayo 2020</span>
+              <span className="footer-txt ultimaActualizacion">Última actualización: Junio 2020</span>
             </div>
             <a
               href="https://github.com/ismaelpadilla/salario-liquido-uruguay"
