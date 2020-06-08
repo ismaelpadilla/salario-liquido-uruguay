@@ -33,6 +33,8 @@ const Result = ({
 
   const aportesCJPPURedondeado = Number(aportesCJPPU.toFixed(2));
 
+  const totalBPSRedondeado = (aportesJubilatorios + aportesFONASA + aporteFRL).toFixed(2);
+
   /**
    * Tabla con el detalle de cada franja del IRPF.
    */
@@ -64,7 +66,7 @@ const Result = ({
         <span className="tablaBPS-label">FRL</span>
         <span className="tablaBPS-dato">{aporteFRL}</span>
         <span className="tablaBPS-label">Total BPS:</span>
-        <span className="tablaBPS-dato totalBPS">${aportesJubilatorios + aportesFONASA + aporteFRL}</span>
+        <span className="tablaBPS-dato totalBPS">{totalBPSRedondeado}</span>
       </div>
       <h2 className="result-section">Detalle IRPF:</h2>
       <div className="detalleIRPF">
