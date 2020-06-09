@@ -6,3 +6,6 @@
 
 # production
 /build
+
+# vim tags
+tags
