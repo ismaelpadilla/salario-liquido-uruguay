@@ -7,6 +7,7 @@ import calcularImpuestos from "./services/calculos";
 import history from "./history";
 import "./App.css";
 import { ReactComponent as GithubLogo } from "./assets/githubLogo.svg";
+import pjsonn from "../package.json";
 
 class App extends React.Component {
   state = {
@@ -135,7 +136,9 @@ class App extends React.Component {
                   Ismael Padilla.
                 </a>
               </span>
-              <span className="footer-txt ultimaActualizacion">Última actualización: Junio 2020</span>
+              <span className="footer-txt ultimaActualizacion">
+                v{pjsonn.version} - Última actualización: Junio 2020
+              </span>
             </div>
             <a
               href="https://github.com/ismaelpadilla/salario-liquido-uruguay"
