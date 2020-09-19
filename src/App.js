@@ -137,7 +137,7 @@ class App extends React.Component {
                 </a>
               </span>
               <span className="footer-txt ultimaActualizacion">
-                v{pjsonn.version} - Última actualización: Julio 2020
+                v{pjsonn.version} - Última actualización: Setiembre 2020
               </span>
             </div>
             <a
