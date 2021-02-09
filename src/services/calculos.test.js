@@ -39,7 +39,7 @@ describe("Probar cálculo de aportes BPS", () => {
 describe("Probar cálculo de IRPF", () => {
   test.each([
     [20000, 1, 0, 0, 3000, 900, 20, 0, 0, 0, 0, { impuestoFranja: [0, 0, 0, 0, 0, 0, 0, 0], deducciones: 3920 }, 0],
-    [40000, 1, 0, 0, 6000, 1800, 40, 0, 0, 0, 0, { impuestoFranja: [0, 837, 0, 0, 0, 0, 0, 0], deducciones: 7840 }, 53],
+    [40000, 1, 0, 0, 6000, 1800, 40, 0, 0, 0, 0, { impuestoFranja: [0, 591, 0, 0, 0, 0, 0, 0], deducciones: 7840 }, 0],
     [
       80000,
       1,
@@ -52,8 +52,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1356, 3389, 4084, 0, 0, 0, 0], deducciones: 15680 },
-      7574,
+      { impuestoFranja: [0, 1461, 3652.5, 2820, 0, 0, 0, 0], deducciones: 15680 },
+      6679.1,
     ],
     [
       80000,
@@ -67,8 +67,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1356, 3389, 4084, 0, 0, 0, 0], deducciones: 20576 },
-      7183,
+      { impuestoFranja: [0, 1461, 3652.5, 2820, 0, 0, 0, 0], deducciones: 20955.83 },
+      6257.03,
     ],
     [
       80000,
@@ -82,8 +82,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1356, 3389, 4084, 0, 0, 0, 0], deducciones: 25471 },
-      6791,
+      { impuestoFranja: [0, 1461, 3652.5, 2820, 0, 0, 0, 0], deducciones: 26231.6 },
+      5834.96,
     ],
     [
       80000,
@@ -97,8 +97,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1356, 3389, 4084, 0, 0, 0, 0], deducciones: 30367 },
-      6399,
+      { impuestoFranja: [0, 1461, 3652.5, 2820, 0, 0, 0, 0], deducciones: 31507.5 },
+      5412.9,
     ],
   ])(
     "Calcula IRPF correctamente",

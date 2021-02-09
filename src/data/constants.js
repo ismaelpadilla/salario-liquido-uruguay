@@ -1,7 +1,7 @@
 /**
- * Valor BPC 2020.
+ * Valor BPC 2021.
  */
-const BPC = 4519;
+const BPC = 4870;
 
 /**
  * Franjas de IPRF.
