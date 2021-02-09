@@ -3,6 +3,8 @@
 ![Versión](https://img.shields.io/github/package-json/v/ismaelpadilla/salario-liquido-uruguay?label=versi%C3%B3n)
 ![Build y test](https://github.com/ismaelpadilla/salario-liquido-uruguay/workflows/Build%20y%20test/badge.svg)
 
+✔Actualizado para el 2021.
+
 ----
 
 Simulador para calcular el salario líquido en Uruguay, actualmente publicado en https://salarioliquidouruguay.com/
@@ -41,10 +43,10 @@ Contrario a creencia popular, no se cobra el impuesto correspondiente a la franj
 Por ejemplo, si el salario nominal es de $50000, el impuesto que se cobra es:
 
 - 0% sobre la porción del salario que cae entre la franja 0 y 7 BPC (impuesto de 0% sobre $31.633 del salario -> $0).
-- 7% sobre la porción del salario que cae entre la franja 7 y 10 BPC (impuesto de 10% sobre $13.557 del salario -> $1355.7).
-- 15% sobre la porción del salario que cae entre la franja 10 y 15 BPC (impuesto de 15% sobre $4.810 del salario -> $721.7).
+- 7% sobre la porción del salario que cae entre la franja 7 y 10 BPC (impuesto de 10% sobre $13.557 del salario -> $1461).
+- 15% sobre la porción del salario que cae entre la franja 10 y 15 BPC (impuesto de 15% sobre $4.810 del salario -> $645).
 
-El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;)), sería entonces $2.077,4‬.
+El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;)), sería entonces $1.106‬.
 
 ## Cómo reportar errores
 
