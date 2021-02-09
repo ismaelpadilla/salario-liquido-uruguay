@@ -1,6 +1,13 @@
 .title-text {
   margin: 0;
 }
+
+.anio {
+  font-weight: normal;
+  font-size: 0.5em;
+  color: gray;
+}
+
 .App {
   position: relative;
   min-height: 100vh;

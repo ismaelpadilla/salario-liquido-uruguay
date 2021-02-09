@@ -1,6 +1,10 @@
 # Changelog
 Todos los cambios importantes en el proyecto serán documentados en este archivo.
 
+## [1.1.0] - 2021-02-08
+
+- Actualizado valor BPC 2021.
+
 ## [1.0.0] - 2020-06-30
 
 - Inputs numéricos tienen 0 como valor mínimo.
