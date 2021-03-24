@@ -1,6 +1,10 @@
 # Changelog
 Todos los cambios importantes en el proyecto serán documentados en este archivo.
 
+## [1.1.1] - 2021-03-24
+
+- Actualizados topes BPS y AFAP.
+
 ## [1.1.0] - 2021-02-08
 
 - Actualizado valor BPC 2021.
