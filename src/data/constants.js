@@ -31,7 +31,7 @@ const APORTES_JUBILATORIOS = 15;
 /**
  * Maximo del salario nominal sobre el cual aplican los aportes jubilatorios.
  */
-const TOPE_APORTES_JUBILATORIOS = 188411;
+const TOPE_APORTES_JUBILATORIOS = 202693;
 
 /**
  * Porcentaje de aportes FONASA para personas con salario hasta a 2.5 BPC.
@@ -50,7 +50,7 @@ const APORTE_FRL = 0.1;
 /**
  * Tope AFAP.
  */
-const TOPE_AFAP = 188411;
+const TOPE_AFAP = 202693;
 
 /**
  * Porcentaje de incremento de ingresos gravados que aplica si la renta computable es mayor a 10 BPC.
