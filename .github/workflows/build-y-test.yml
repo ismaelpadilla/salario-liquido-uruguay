@@ -4,7 +4,7 @@ name: Build y test
 
 on:
   push:
-    branches: [master]
+    branches: [master, release]
   pull_request:
 
 jobs:
