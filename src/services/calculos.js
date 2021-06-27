@@ -184,15 +184,7 @@ const calcularImpuestos = (
     aportesCJPPU,
     otrasDeducciones
   );
-  const salarioLiquido =
-    salarioNominal -
-    aportesJubilatorios -
-    aportesFONASA -
-    aporteFRL -
-    (aportesFondoSolidaridad * BPC) / 12 -
-    (adicionalFondoSolidaridad ? ADICIONAL_FONDO_SOLIDARIDAD : 0) -
-    totalIRPF -
-    aportesCJPPU;
+  const salarioLiquido = salarioNominal - aportesJubilatorios - aportesFONASA - aporteFRL - totalIRPF;
 
   // Redondear todos los valores a dos numeros decimales, dejandolos como numeros.
   const salarioLiquidoRedondeado = Number(salarioLiquido.toFixed(2));
