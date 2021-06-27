@@ -56,6 +56,15 @@ const Result = ({
       </Link>
       <div className="liquido">
         <span className="liquido-label"> Salario líquido:</span> <span className="liquido-dato">${salarioLiquido}</span>
+        {totalFondoSolidaridadRedondeado || aportesCJPPURedondeado ? (
+          <span className="liquido-info">
+            <span className="liquido-info-i">?</span>
+            <span className="liquido-tooltip">
+              El salario líquido es el nominal menos los descuentos de BPS e IRPF, antes de los descuentos
+              profesionales.
+            </span>
+          </span>
+        ) : null}
       </div>
       <h2 className="result-section">Detalle BPS:</h2>
       <div className="detalleBPS">

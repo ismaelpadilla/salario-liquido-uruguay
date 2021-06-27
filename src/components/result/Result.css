@@ -30,6 +30,66 @@
   font-weight: bold;
 }
 
+.liquido-info {
+  margin-left: 10px;
+  position: relative;
+}
+
+.liquido-info-i {
+  font-weight: bold;
+  font-size: 12px;
+  border: 2px solid gray;
+  background-color: gray;
+  color: white;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 13px;
+  width: 13px;
+  margin-bottom: 3px;
+}
+
+.liquido-info .liquido-tooltip {
+  visibility: hidden;
+  width: 300px;
+  background-color: #5476aa;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  font-size: small;
+  border-radius: 6px;
+
+  /* Posicion tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 155%;
+  left: 50%;
+  margin-left: -260px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Flecha tooltip */
+.liquido-info .liquido-tooltip::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 260px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #5476aa transparent;
+}
+
+.liquido-info:hover .liquido-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 .result-section {
   text-align: center;
 }
