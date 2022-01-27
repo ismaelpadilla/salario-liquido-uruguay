@@ -1,6 +1,6 @@
 {
   "name": "salario-liquido-uruguay",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

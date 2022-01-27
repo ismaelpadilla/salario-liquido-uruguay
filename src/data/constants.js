@@ -1,7 +1,7 @@
 /**
- * Valor BPC 2021.
+ * Valor BPC 2022.
  */
-const BPC = 4870;
+const BPC = 5164;
 
 /**
  * Franjas de IPRF.

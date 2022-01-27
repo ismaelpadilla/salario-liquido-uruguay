@@ -3,7 +3,7 @@
 ![Versión](https://img.shields.io/github/package-json/v/ismaelpadilla/salario-liquido-uruguay?label=versi%C3%B3n)
 ![Build y test](https://github.com/ismaelpadilla/salario-liquido-uruguay/workflows/Build%20y%20test/badge.svg)
 
-✔Actualizado para el 2021.
+✔Actualizado para el 2022.
 
 ----
 
@@ -40,13 +40,13 @@ El IRPF es el impuesto con el que la guente suele tener más problemas a la hora
 
 Contrario a creencia popular, no se cobra el impuesto correspondiente a la franja más alta sobre todo el salario, si no que se aplican diferentes tasas a la porción de salario que está dentro de cada franja.
 
-Por ejemplo, si el salario nominal es de $50.000, y el BPC es $4870 (valor de 2021), el impuesto que se cobra es:
+Por ejemplo, si el salario nominal es de $60.000, y el BPC es $5164 (valor de 2022), el impuesto que se cobra es:
 
-- 0% sobre la porción del salario que cae entre la franja 0 y 7 BPC (impuesto de 0% sobre $34.090-$0=$34.090 del salario -> $0).
-- 7% sobre la porción del salario que cae entre la franja 7 y 10 BPC (impuesto de 10% sobre $48.700-$34.090=$14.610 del salario -> $1.461).
-- 15% sobre la porción del salario que cae entre la franja 10 y 15 BPC (impuesto de 15% sobre $53.000-$48.700=$4.300 del salario -> $645).
+- 0% sobre la porción del salario que cae entre la franja 0 y 7 BPC (impuesto de 0% sobre $36.148-$0=$36.148 del salario -> $0).
+- 7% sobre la porción del salario que cae entre la franja 7 y 10 BPC (impuesto de 10% sobre $51.640-$36.148=$15.492 del salario -> $1.549).
+- 15% sobre la porción del salario que cae entre la franja 10 y 15 BPC (impuesto de 15% sobre $77.460-$51.640=$11.960 del salario -> $1.794).
 
-El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;)), sería entonces $2.106‬.
+El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;)), sería entonces $3.343.
 
 ## Cómo reportar errores
 
