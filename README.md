@@ -46,7 +46,7 @@ Por ejemplo, si el salario nominal es de $60.000, y el BPC es $5164 (valor de 20
 - 7% sobre la porción del salario que cae entre la franja 7 y 10 BPC (impuesto de 10% sobre $51.640-$36.148=$15.492 del salario -> $1.549).
 - 15% sobre la porción del salario que cae entre la franja 10 y 15 BPC (impuesto de 15% sobre $77.460-$51.640=$11.960 del salario -> $1.794).
 
-El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,rentas-de-trabajo-160,preguntas-frecuentes-ampliacion,O,es,0,PAG;CONC;1017;8;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;3;PAG;)), sería entonces $3.343.
+El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,principal,_Ampliacion,O,es,0,PAG;CONC;40;1;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;5;PAG;)), sería entonces $3.343.
 
 ## Cómo reportar errores
 
