@@ -1,6 +1,10 @@
 # Changelog
 Todos los cambios importantes en el proyecto serán documentados en este archivo.
 
+## [1.2.0] - 2022-01-28
+
+- Actualizado valor BPC 2022.
+
 ## [1.1.2] - 2021-06-26
 
 - Al salario líquido mostrado ya no se le descuentan (incorrectamente) los aportes profesionales.
