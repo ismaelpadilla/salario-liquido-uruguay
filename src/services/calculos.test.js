@@ -24,7 +24,7 @@ describe("Probar cálculo de aportes BPS", () => {
 
   test.each([
     [202693, 30404],
-    [250000, 30404],
+    [250000, 32276.9],
   ])("Aplican topes jubilatorios", (salarioNominal, esperadoJubilatorio) => {
     /**
      * El aporte jubilatorio se aplica hasta el tope 188411 (valor 2020).
