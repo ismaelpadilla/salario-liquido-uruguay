@@ -1,6 +1,10 @@
 # Changelog
 Todos los cambios importantes en el proyecto serán documentados en este archivo.
 
+## [1.2.1] - 2022-03-11
+
+- Actualizados topes Art. 7º y 8º (Ley 16713).
+
 ## [1.2.0] - 2022-01-28
 
 - Actualizado valor BPC 2022.
