@@ -103,7 +103,7 @@ function App() {
       <div className="content">
         <header className="title">
           <h1 className="title-text">
-            Salario líquido Uruguay <span className="anio">2022</span>
+            Salario líquido Uruguay <span className="anio">2023</span>
           </h1>
         </header>
        
@@ -137,7 +137,7 @@ function App() {
               Ismael Padilla.
             </a>
           </span>
-          <span className="footer-txt ultimaActualizacion">v{pjsonn.version} - Última actualización: Marzo 2022</span>
+          <span className="footer-txt ultimaActualizacion">v{pjsonn.version} - Última actualización: Mayo 2023</span>
         </div>
         <a
           href="https://github.com/ismaelpadilla/salario-liquido-uruguay"
