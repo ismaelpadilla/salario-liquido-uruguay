@@ -1,13 +1,11 @@
 .form {
-  width: 80%;
+  width: 70%;
   box-sizing: border-box;
   margin: auto;
   padding: 20px;
 }
 
-.form-section {
-  text-align: center;
-}
+
 
 .form-subSection {
   text-align: center;
@@ -16,37 +14,38 @@
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 10px;
+  gap: 15px;
   text-align: right;
+   
+}
+label{
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
-.form-input {
-  box-sizing: border-box;
-  width: 20%;
-  min-width: 120px;
-  text-align: right;
-  padding: 2px;
+.form-section{
+  text-align: center;
+  background-color: rgb(218, 218, 218);
+  padding:12px
 }
+
+
 
 @keyframes rojoAAzul {
   from {
     background-color: rgb(255, 83, 71);
   }
   to {
-    background-color: #5476aa;
+    background-color: #0d6efd;
   }
 }
 
 .btnSubmit {
   margin: auto;
   display: block;
-  background-color: #5476aa;
-  color: white;
-  font-size: 1em;
-  border: 0;
-  padding: 5px;
-  margin-top: 20px;
-  cursor: pointer;
+  border:none;
+ 
 }
 
 .btnSubmit-invalido {
@@ -59,4 +58,21 @@
     width: 95%;
     margin: auto;
   }
+  .form-control{
+    height: 45px !important;
+  }
+  .form-label{
+    height: 40px !important;
+  }
 }
+@media only screen and (max-width: 1200px) {
+  
+  .form-control{
+    height: 45px !important;
+  }
+  .form-label{
+    height: 40px !important;
+  }
+}
+
+

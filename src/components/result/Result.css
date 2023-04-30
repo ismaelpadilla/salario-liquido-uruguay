@@ -8,22 +8,13 @@
 
 .btnVolver {
   display: block;
-  width: 50px;
-  margin-bottom: 10px;
-  background-color: #5476aa;
-  color: white;
-  font-size: 1em;
-  border: 0;
-  padding: 5px;
-  margin-top: 20px;
-  text-align: center;
   text-decoration: none;
 }
 
 .liquido {
   font-size: larger;
   text-align: center;
-  margin: 30px auto;
+  margin: 10px auto;
 }
 
 .liquido-dato {
@@ -163,7 +154,7 @@
 }
 
 .detalleProfesionales {
-  margin: auto;
+  margin: 20px auto;
   max-width: 300px;
   display: grid;
   grid-template-columns: auto auto;

@@ -51,11 +51,11 @@ const Result = ({
 
   return (
     <div className="result">
-      <Link className="btnVolver" to="/">
+     <Link className="btnVolver btn btn-outline-secondary  w-50 m-auto mt-3 mb-0" to="/">
         Volver
       </Link>
       <div className="liquido">
-        <span className="liquido-label"> Salario líquido:</span> <span className="liquido-dato">${salarioLiquido}</span>
+        <div className="liquido-label fs-3 mt-4"> <strong>Salario líquido aproximado:</strong></div> <div className="liquido-dato fs-2 bg-secondary text-white">${salarioLiquido}</div>
         {totalFondoSolidaridadRedondeado || aportesCJPPURedondeado ? (
           <span className="liquido-info">
             <span className="liquido-info-i">?</span>
@@ -66,7 +66,7 @@ const Result = ({
           </span>
         ) : null}
       </div>
-      <h2 className="result-section">Detalle BPS:</h2>
+      <h2 className="result-section mt-4">Detalle BPS:</h2>
       <div className="detalleBPS">
         <span className="tablaBPS-label">Jubilatorio</span>
         <span className="tablaBPS-dato">{aportesJubilatorios}</span>
@@ -77,7 +77,7 @@ const Result = ({
         <span className="tablaBPS-label">Total BPS:</span>
         <span className="tablaBPS-dato totalBPS">{totalBPSRedondeado}</span>
       </div>
-      <h2 className="result-section">Detalle IRPF:</h2>
+      <h2 className="result-section mt-4">Detalle IRPF:</h2>
       <div className="detalleIRPF">
         <span className="tablaIRPF-head">Desde</span>
         <span className="tablaIRPF-head">Hasta</span>
@@ -93,8 +93,8 @@ const Result = ({
         <span className="resumenIRPF-labelTotal">Total IRPF:</span>
         <span className="resumenIRPF-dato resumenIRPF-total">${totalIRPF}</span>
       </div>
-      <h2 className="result-section">Profesionales:</h2>
-      <div className="detalleProfesionales">
+      <h2 className="result-section mt-4">Profesionales:</h2>
+      <div className="detalleProfesionales ">
         <span className="tablaProfesionales-label">Fondo Solidaridad:</span>
         <span className="tablaProfesionales-dato">${totalFondoSolidaridadRedondeado}</span>
         <span className="tablaProfesionales-label">Aportes CJPPU / Caja Notarial:</span>

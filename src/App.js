@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Router, Switch, Route, Redirect } from "react-router-dom";
 
 import Form from "./components/form/Form";
@@ -9,52 +9,50 @@ import "./App.css";
 import { ReactComponent as GithubLogo } from "./assets/githubLogo.svg";
 import pjsonn from "../package.json";
 
-class App extends React.Component {
-  state = {
-    formState: {
-      salarioNominal: 0,
-      tieneHijos: false,
-      tieneConyuge: false,
-      factorDeduccionPersonasACargo: 1,
-      cantHijosSinDiscapacidad: 0,
-      cantHijosConDiscapacidad: 0,
-      aportesFondoSolidaridad: 0,
-      adicionalFondoSolidaridad: false,
-      aportesCJPPU: 0,
-      otrasDeducciones: 0,
-      formValido: true,
-    },
-    result: {
-      formSubmitted: false,
-      salarioLiquido: 0,
-      aportesJubilatorios: 0,
-      aportesFONASA: 0,
-      aporteFRL: 0,
-      detalleIRPF: 0,
-      totalIRPF: 0,
-      aportesFondoSolidaridad: 0,
-      adicionalFondoSolidaridad: false,
-      aportesCJPPU: 0,
-    },
-  };
+function App() {
+  const [formState, setFormState] = useState({
+    salarioNominal: 0,
+    tieneHijos: false,
+    tieneConyuge: false,
+    factorDeduccionPersonasACargo: 1,
+    cantHijosSinDiscapacidad: 0,
+    cantHijosConDiscapacidad: 0,
+    aportesFondoSolidaridad: 0,
+    adicionalFondoSolidaridad: false,
+    aportesCJPPU: 0,
+    otrasDeducciones: 0,
+    formValido: true,
+  });
 
+  const [result, setResult] = useState({
+    formSubmitted: false,
+    salarioLiquido: 0,
+    aportesJubilatorios: 0,
+    aportesFONASA: 0,
+    aporteFRL: 0,
+    detalleIRPF: 0,
+    totalIRPF: 0,
+    aportesFondoSolidaridad: 0,
+    adicionalFondoSolidaridad: false,
+    aportesCJPPU: 0,
+  });
   /**
    * Función que se llama cuando el usuario modifica alguno de los inputs del formulario.
    */
-  onFormElementChanged = (e) => {
+  const onFormElementChanged = (e) => {
     const name = e.target.name;
     const value = e.target.type === "checkbox" ? e.target.checked : Number(e.target.value);
 
-    this.setState({ formState: { ...this.state.formState, [name]: value, formValido: true } });
+    setFormState({ ...formState, [name]: value, formValido: true });
   };
 
   /**
    * Función que se llama cuando el usuario hace submit en el formulario.
    */
-  onFormSubmitted = (e) => {
+  const onFormSubmitted = (e) => {
     e.preventDefault();
 
-    if (this.state.formState.salarioNominal > 0) {
+    if (formState.salarioNominal > 0) {
       const {
         salarioLiquido,
         aportesJubilatorios,
@@ -63,19 +61,19 @@ class App extends React.Component {
         detalleIRPF,
         totalIRPF,
       } = calcularImpuestos(
-        this.state.formState.salarioNominal,
-        this.state.formState.tieneHijos,
-        this.state.formState.tieneConyuge,
-        this.state.formState.factorDeduccionPersonasACargo,
-        this.state.formState.cantHijosSinDiscapacidad,
-        this.state.formState.cantHijosConDiscapacidad,
-        this.state.formState.aportesFondoSolidaridad,
-        this.state.formState.adicionalFondoSolidaridad,
-        this.state.formState.aportesCJPPU,
-        this.state.formState.otrasDeducciones
+        formState.salarioNominal,
+        formState.tieneHijos,
+        formState.tieneConyuge,
+        formState.factorDeduccionPersonasACargo,
+        formState.cantHijosSinDiscapacidad,
+        formState.cantHijosConDiscapacidad,
+        formState.aportesFondoSolidaridad,
+        formState.adicionalFondoSolidaridad,
+        formState.aportesCJPPU,
+        formState.otrasDeducciones
       );
 
-      const result = {
+      const newResult = {
         formSubmitted: true,
         salarioLiquido,
         aportesJubilatorios,
@@ -83,78 +81,76 @@ class App extends React.Component {
         aporteFRL,
         detalleIRPF,
         totalIRPF,
-        aportesFondoSolidaridad: this.state.formState.aportesFondoSolidaridad,
-        adicionalFondoSolidaridad: this.state.formState.adicionalFondoSolidaridad,
-        aportesCJPPU: this.state.formState.aportesCJPPU,
+        aportesFondoSolidaridad: formState.aportesFondoSolidaridad,
+        adicionalFondoSolidaridad: formState.adicionalFondoSolidaridad,
+        aportesCJPPU: formState.aportesCJPPU,
       };
-      this.setState({ result });
+      setResult(newResult);
       if (salarioLiquido >= 0) {
-        this.setState({ formState: { ...this.state.formState, formValido: true } });
+        setFormState({ ...formState, formValido: true });
         history.push("result");
       } else {
-        this.setState({ formState: { ...this.state.formState, formValido: false } });
+        setFormState({ ...formState, formValido: false });
       }
     } else {
-      this.setState({ formState: { ...this.state.formState, formValido: false } });
+      setFormState({ ...formState, formValido: false });
     }
   };
 
-  render = () => {
-    return (
-      <Router history={history}>
-        <div className="App">
-          <div className="content">
-            <header className="title">
-              <h1 className="title-text">
-                Salario líquido Uruguay <span className="anio">2022</span>
-              </h1>
-            </header>
-            <Switch>
-              <Route path="/result">
-                <Result {...this.state.result}></Result>
-              </Route>
-              <Route exact path="/form">
-                <main>
-                  <Form
-                    onFormElementChanged={this.onFormElementChanged}
-                    onFormSubmitted={this.onFormSubmitted}
-                    formState={this.state.formState}
-                  ></Form>
-                </main>
-              </Route>
-              <Redirect to="/form" />
-            </Switch>
-          </div>
-          <footer className="footer">
-            <div className="footer-about">
-              <span className="footer-txt autor">
-                Creado por{" "}
-                <a
-                  className="autor-link"
-                  href="https://www.linkedin.com/in/ismaelpadilla/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ismael Padilla.
-                </a>
-              </span>
-              <span className="footer-txt ultimaActualizacion">
-                v{pjsonn.version} - Última actualización: Marzo 2022
-              </span>
-            </div>
+  return (
+    <Router history={history}>
+    <div className="App">
+      <div className="content">
+        <header className="title">
+          <h1 className="title-text">
+            Salario líquido Uruguay <span className="anio">2022</span>
+          </h1>
+        </header>
+       
+          <Switch>
+            <Route path="/result">
+              <Result {...result}></Result>
+            </Route>
+            <Route exact path="/form">
+              <main>
+                <Form
+                  onFormElementChanged={onFormElementChanged}
+                  onFormSubmitted={onFormSubmitted}
+                  formState={formState}
+                ></Form>
+              </main>
+            </Route>
+            <Redirect to="/form" />
+          </Switch>
+        
+      </div>
+      <footer className="footer">
+        <div className="footer-about">
+          <span className="footer-txt autor">
+            Creado por{" "}
             <a
-              href="https://github.com/ismaelpadilla/salario-liquido-uruguay"
-              aria-label="Source code"
+              className="autor-link"
+              href="https://www.linkedin.com/in/ismaelpadilla/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GithubLogo className="githubLogo" />
+              Ismael Padilla.
             </a>
-          </footer>
+          </span>
+          <span className="footer-txt ultimaActualizacion">v{pjsonn.version} - Última actualización: Marzo 2022</span>
         </div>
-      </Router>
-    );
-  };
+        <a
+          href="https://github.com/ismaelpadilla/salario-liquido-uruguay"
+          aria-label="Source code"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GithubLogo className="githubLogo" />
+        </a>
+      </footer>
+    </div>
+    </Router>
+  );
 }
 
 export default App;
