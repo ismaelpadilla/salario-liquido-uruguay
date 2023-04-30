@@ -75,3 +75,10 @@
 .githubLogo:hover {
   fill: white;
 }
+
+.btn-primary{
+  background-color: #0071e3 ;
+}
+.btn-primary:hover{
+  background-color: #0078EE ;
+}
