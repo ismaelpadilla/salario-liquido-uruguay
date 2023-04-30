@@ -26,7 +26,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <input
           id="inputSalario"
           name="salarioNominal"
-          className="form-control"
+          className="form-control w-75"
           type="number"
           min="0"
           onFocus={handleFocus}
@@ -62,7 +62,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <select
           id="inputFactorDeduccion"
           name="factorDeduccionPersonasACargo"
-          className="form-control"
+          className="form-select w-75"
           value={formState.factorDeduccionPersonasACargo}
           onChange={onFormElementChanged}
         >
@@ -74,7 +74,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <input
           id="inputHijosSinDiscapacidad"
           name="cantHijosSinDiscapacidad"
-          className="form-control"
+          className="form-control w-75"
           type="number"
           onFocus={handleFocus}
           min="0"
@@ -85,7 +85,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <input
           id="inputHijosConDiscapacidad"
           name="cantHijosConDiscapacidad"
-          className="form-control"
+          className="form-control w-75"
           type="number"
           onFocus={handleFocus}
           min="0"
@@ -95,11 +95,11 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
       </div>
       <h3 className="form-subSection my-4">Si es profesional:</h3>
       <div className="form-grid">
-        <label htmlFor="inputAportesFondoSolidaridad">¿Aporta al Fondo de Solidaridad?</label>
+        <label className="form-label" htmlFor="inputAportesFondoSolidaridad">¿Aporta al Fondo de Solidaridad?</label>
         <select
           id="inputAportesFondoSolidaridad"
           name="aportesFondoSolidaridad"
-          className="form-select"
+          className="form-select w-75"
           value={formState.aportesFondoSolidaridad}
           onChange={onFormElementChanged}
         >
@@ -121,7 +121,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <input
           id="inputAportesCajaProfesionales"
           name="aportesCJPPU"
-          className="form-control"
+          className="form-control w-75"
           type="number"
           onFocus={handleFocus}
           min="0"
@@ -132,7 +132,7 @@ const Form = ({ onFormElementChanged, onFormSubmitted, formState }) => {
         <input
           id="inputOtrasDeducciones"
           name="otrasDeducciones"
-          className="form-control"
+          className="form-control w-75"
           type="number"
           onFocus={handleFocus}
           min="0"
