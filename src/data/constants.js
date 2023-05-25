@@ -1,7 +1,7 @@
 /**
- * Valor BPC 2022.
+ * Valor BPC 2023.
  */
-const BPC = 5164;
+const BPC = 5660;
 
 /**
  * Franjas de IPRF.
