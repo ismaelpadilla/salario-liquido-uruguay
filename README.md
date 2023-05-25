@@ -3,7 +3,7 @@
 ![Versión](https://img.shields.io/github/package-json/v/ismaelpadilla/salario-liquido-uruguay?label=versi%C3%B3n)
 ![Build y test](https://github.com/ismaelpadilla/salario-liquido-uruguay/workflows/Build%20y%20test/badge.svg)
 
-✔Actualizado para el 2022.
+✔Actualizado para el 2023.
 
 ----
 
@@ -20,7 +20,7 @@ Los dos principales tipos de impuestos a tener en cuenta son los aportes a BPS y
 Los aportes a realizar son:
 
 - [Aportes jubilatorios](https://www.bps.gub.uy/10305/aporte-jubilatorio.html): 15% del salario.
-- [FONASA](https://www.bps.gub.uy/10310/fondo-nacional-de-salud-fonasa.html): 4,5% en la mayoría de los casos, pero la tasa varía si se tiene remuneración menor a 2,5 BPC, y según se tengan hijos o cónyuges a cargo. 
+- [FONASA](https://www.bps.gub.uy/10310/fondo-nacional-de-salud-fonasa.html): 4,5% en la mayoría de los casos, pero la tasa varía si se tiene remuneración menor a 2,5 BPC, y según se tengan hijos o cónyuges a cargo.
 - [FRL](https://www.bps.gub.uy/10322/fondo-reconversion-laboral-frl.html): 0,10% del salario.
 
 ### IRPF
