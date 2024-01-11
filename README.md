@@ -25,7 +25,7 @@ Los aportes a realizar son:
 
 ### IRPF
 
-El IRPF es el impuesto con el que la guente suele tener más problemas a la hora de calcularlo. Se aplican diferentes tasas sobre las diferentes franjas del salario, donde las franjas son:
+El IRPF es el impuesto con el que la gente suele tener más problemas a la hora de calcularlo. Se aplican diferentes tasas sobre las diferentes franjas del salario, donde las franjas son:
 
 | Desde    | Hasta     | Tasa  |
 | -------: |----------:| -----:|
