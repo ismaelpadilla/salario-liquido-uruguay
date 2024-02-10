@@ -24,7 +24,7 @@ describe("Probar cálculo de aportes BPS", () => {
 
   test.each([
     [202693, 30404],
-    [250000, 32276.9],
+    [250000, 35446.35],
   ])("Aplican topes jubilatorios", (salarioNominal, esperadoJubilatorio) => {
     /**
      * El aporte jubilatorio se aplica hasta el tope 188411 (valor 2020).
@@ -39,7 +39,21 @@ describe("Probar cálculo de aportes BPS", () => {
 describe("Probar cálculo de IRPF", () => {
   test.each([
     [20000, 1, 0, 0, 3000, 900, 20, 0, 0, 0, 0, { impuestoFranja: [0, 0, 0, 0, 0, 0, 0, 0], deducciones: 3920 }, 0],
-    [40000, 1, 0, 0, 6000, 1800, 40, 0, 0, 0, 0, { impuestoFranja: [0, 385, 0, 0, 0, 0, 0, 0], deducciones: 7840 }, 0],
+    [
+      50000,
+      1,
+      0,
+      0,
+      7500,
+      2250,
+      50,
+      0,
+      0,
+      0,
+      0,
+      { impuestoFranja: [0, 676.1, 0, 0, 0, 0, 0, 0], deducciones: 9800 },
+      0,
+    ],
     [
       80000,
       1,
@@ -52,8 +66,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1549.2, 3873, 1761.6, 0, 0, 0, 0], deducciones: 15680 },
-      5929.4,
+      { impuestoFranja: [0, 1853.1, 3454.5, 0, 0, 0, 0, 0], deducciones: 15680 },
+      3739.6,
     ],
     [
       80000,
@@ -67,8 +81,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1549.2, 3873, 1761.6, 0, 0, 0, 0], deducciones: 21274.33 },
-      5481.85,
+      { impuestoFranja: [0, 1853.1, 3454.5, 0, 0, 0, 0, 0], deducciones: 25975 },
+      2710.1,
     ],
     [
       80000,
@@ -82,8 +96,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1549.2, 3873, 1761.6, 0, 0, 0, 0], deducciones: 26868.67 },
-      5034.31,
+      { impuestoFranja: [0, 1853.1, 3454.5, 0, 0, 0, 0, 0], deducciones: 36270 },
+      1680.6,
     ],
     [
       80000,
@@ -97,8 +111,8 @@ describe("Probar cálculo de IRPF", () => {
       0,
       0,
       0,
-      { impuestoFranja: [0, 1549.2, 3873, 1761.6, 0, 0, 0, 0], deducciones: 32463 },
-      4586.76,
+      { impuestoFranja: [0, 1853.1, 3454.5, 0, 0, 0, 0, 0], deducciones: 46565 },
+      651.1,
     ],
   ])(
     "Calcula IRPF correctamente",
