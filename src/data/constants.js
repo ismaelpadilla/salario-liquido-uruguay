@@ -1,7 +1,7 @@
 /**
- * Valor BPC 2022.
+ * Valor BPC 2024.
  */
-const BPC = 5164;
+const BPC = 6177;
 
 /**
  * Franjas de IPRF.
@@ -31,7 +31,7 @@ const APORTES_JUBILATORIOS = 15;
 /**
  * Maximo del salario nominal sobre el cual aplican los aportes jubilatorios.
  */
-const TOPE_APORTES_JUBILATORIOS = 215179;
+const TOPE_APORTES_JUBILATORIOS = 236309;
 
 /**
  * Porcentaje de aportes FONASA para personas con salario hasta a 2.5 BPC.
@@ -50,7 +50,7 @@ const APORTE_FRL = 0.1;
 /**
  * Tope AFAP.
  */
-const TOPE_AFAP = 215179;
+const TOPE_AFAP = 236309;
 
 /**
  * Porcentaje de incremento de ingresos gravados que aplica si la renta computable es mayor a 10 BPC.
@@ -69,17 +69,17 @@ const TASA_DEDUCCIONES_DESDE15BPC = 8;
 /**
  * Cantidad deducida del IRPF por cada hijo sin discapacidad.
  */
-const DEDUCCION_HIJO_SIN_DISCAPACIDAD = (13 * BPC) / 12;
+const DEDUCCION_HIJO_SIN_DISCAPACIDAD = (20 * BPC) / 12;
 /**
  * Cantidad deducida del IRPF por cada hijo con discapacidad.
  */
-const DEDUCCION_HIJO_CON_DISCAPACIDAD = (26 * BPC) / 12;
+const DEDUCCION_HIJO_CON_DISCAPACIDAD = (40 * BPC) / 12;
 
 /**
  * Adicional al fondo de solidaridad que debe pagarse en carreras de duracion igual o mayor
  * a cinco años.
  */
-const ADICIONAL_FONDO_SOLIDARIDAD = ((5 / 3) * BPC) / 12;
+const ADICIONAL_FONDO_SOLIDARIDAD = ((5 / 4) * BPC) / 12;
 
 export {
   BPC,
