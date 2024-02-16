@@ -48,7 +48,7 @@ Por ejemplo, si el salario nominal es de $80.000, y el BPC es $6177 (valor de 20
 
 Tener en cuenta que si el salario es mayor a 10BPC, se incrementa un 6% para los cálculos del IRPF, por eso en este caso consideramos las franjas hasta $84.800.
 
-El IPRF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,principal,_Ampliacion,O,es,0,PAG;CONC;40;1;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;5;PAG;)), sería entonces $5.308.
+El IRPF (antes de aplicar las [deducciones correspondientes](https://www.dgi.gub.uy/wdgi/page?2,principal,_Ampliacion,O,es,0,PAG;CONC;40;1;D;cuales-son-las-deducciones-personales-admitidas-en-la-liquidacion-del-irpf-33486;5;PAG;)), sería entonces $5.308.
 
 ## Cómo reportar errores
 
